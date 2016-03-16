@@ -3,12 +3,17 @@
 ## 项目背景
 　公司有一个短信通知业务，考虑到成本以及可用性问题，选用了4家短信服务商．最开始设计时，只有一家服务商．
 　因此．发送短信时，这样就可以．
+　
+　
 　```
 　smsProviderService.send_sms(mobile,content);
 　```
 　
+　
 　后来，公司又增加了短信服务商，这家供应商更便宜．但为了可靠性，比如新的供应商短信发送失败，这时候还要使用用第二家供应商服务．于是，
 　代码成这样了．
+　
+　
 　```
 　if(smsProviderService.send_sms(mobile,content) != ok){
 　}else{
@@ -16,7 +21,9 @@
 　}
 　```
 　
+　
 　后来，又来了一家．这时候，代码成了这样．
+　
 　```
 　　if(smsProviderService.send_sms(mobile,content) != ok){
 　}else 　if(smsProviderService2.send_sms(mobile,content) != ok){{
@@ -24,7 +31,10 @@
 　}
 　```
 　
-　再后来，又来了一家．我受不了了．我不能被这玩意搞死啊，怎么办？
+　
+　再后来，又来了一家．我受不了了．我不能被这玩意搞死啊，怎么办？!!
+　
+　
 　重构．
 　
 　引用职责链模式即可．直接上代码去．
